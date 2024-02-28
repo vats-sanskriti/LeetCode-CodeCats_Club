@@ -1,29 +1,22 @@
 class Solution {
 public:
     int xorAllNums(vector<int>& nums1, vector<int>& nums2) {
-    
-      int xor2=0;
-        for(int i=0;i<nums2.size();i++)
-        {
-            xor2^=nums2[i];
-        }
-        
+        int ans = 0 ;
+        int xor1 = 0 ;
         int n1=nums1.size();
         int n2=nums2.size();
-        int ans=0;
+        for(int i = 0 ; i<n1 ; i++){
+            xor1 = xor1 ^ nums1[i]; 
+        }
         
-        for(int i=0;i<nums1.size();i++)
-        {
-            if(n2%2==1)
-            {
-                ans^=nums1[i]^xor2;
+        for(int i = 0 ; i< n2 ;i++){
+            if(n1%2==1){
+                ans = ans^nums2[i]^xor1;
             }
             else
-            {
-                ans^=xor2;
-            }
+                ans = ans ^xor1;
         }
-        return ans;
+        return ans ;
     }
 };
        
